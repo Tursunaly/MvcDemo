@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+    font-family: 'Anton', sans-serif;
+    background-color: #0f0f0f;
+    color: #f4f4f4;
+    background-image: url('/images/fightclub_bg.jpg'); /* Фон в стиле Fight Club */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+}
+
+a, button {
+    font-family: inherit;
+}
+
+.fightclub-card {
+    background: rgba(15, 15, 15, 0.9);
+    border: 2px solid crimson;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 650px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease;
+}
+
+.fightclub-card h1 {
+    color: crimson;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.fightclub-card .quote {
+    font-style: italic;
+    color: #ccc;
+    margin-top: 1rem;
+}
+
+.fight-btn {
+    margin-top: 1.5rem;
+    background: crimson;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.fight-btn:hover {
+    background: darkred;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Цитаты блочным списком */
+.manifesto {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid crimson;
+    box-shadow: 0 0 10px crimson;
+}
+
+.manifesto h2 {
+    color: crimson;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.manifesto ul {
+    list-style: square;
+    padding-left: 2rem;
+}
+
+.manifesto li {
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+/* fightclub.css */
+.fightclub-hero {
+    position: relative;
+    text-align: center;
+    color: #eee;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    background-color: #1a1a1a;
+    padding: 3rem 1rem;
+}
+
+.fightclub-hero img {
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px crimson;
+    margin-bottom: 1.5rem;
+}
+
+.fightclub-hero h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    color: crimson;
+    text-shadow: 2px 2px 5px black;
+}
+
+.fightclub-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+    color: #ccc;
+    text-shadow: 1px 1px 3px black;
+}

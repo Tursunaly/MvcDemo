@@ -1,0 +1,12 @@
+body {
+    background-color: white;
+    color: black;
+}
+input, button {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+button {
+    cursor: pointer;
+}

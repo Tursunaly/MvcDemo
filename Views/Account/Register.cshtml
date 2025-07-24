@@ -1,0 +1,42 @@
+@model MvcAuthApp.Models.User
+
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-100" style="max-width: 600px;">
+        <h2 class="mb-4 text-center">Регистрация</h2>
+
+        @* Показываем сообщение об успехе с плавной анимацией *@
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success fade-in">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <form asp-action="Register" method="post" novalidate>
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="Username" class="form-label"></label>
+                    <input asp-for="Username" class="form-control" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,104 @@
+@{
+    ViewData["Title"] = "Авторизация и регистрация";
+}
+
+<h2 class="text-center mb-4">Авторизация / Регистрация</h2>
+
+<div class="container">
+    <!-- Сообщения об успехе и ошибках -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+    @if (TempData["LoginError"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["LoginError"]
+        </div>
+    }
+
+    <div class="row justify-content-center">
+        <!-- Регистрация -->
+        <div class="col-md-5">
+            <div class="card p-4 mb-4 shadow-sm">
+                <h3 class="mb-3 text-center">Регистрация</h3>
+                <form asp-action="Register" method="post" novalidate>
+                    <div class="mb-3">
+                        <label for="Username" class="form-label">Имя пользователя</label>
+                        <input type="text" class="form-control" id="Username" name="Username" required />
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите имя пользователя.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="EmailReg" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="EmailReg" name="Email" required />
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите корректный email.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="PasswordReg" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="PasswordReg" name="Password" required minlength="6" />
+                        <div class="invalid-feedback">
+                            Пароль должен быть не менее 6 символов.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Вход -->
+        <div class="col-md-5">
+            <div class="card p-4 mb-4 shadow-sm">
+                <h3 class="mb-3 text-center">Вход</h3>
+                <form asp-action="Login" method="post" novalidate>
+                    <div class="mb-3">
+                        <label for="EmailLogin" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="EmailLogin" name="email" required />
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите корректный email.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="PasswordLogin" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="PasswordLogin" name="password" required />
+                        <div class="invalid-feedback">
+                            Пожалуйста, введите пароль.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap валидация форм
+    (function () {
+        'use strict'
+
+        // Получаем все формы, которым нужно применить валидацию
+        var forms = document.querySelectorAll('form')
+
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
